@@ -1,0 +1,72 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1048576 (0x100000)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=CN, ST=guangdong, O=DigiCert, OU=Root CA, CN=DigiCert Root CA - R1
+        Validity
+            Not Before: May 20 07:44:00 2022 GMT
+            Not After : Sep 20 07:44:00 3021 GMT
+        Subject: C=CN, ST=guangdong, O=DigiCert, OU=Root CA, CN=DigiCert Root CA - R1
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:c2:7d:1e:a6:ec:7d:fa:6e:07:27:66:07:fd:e8:
+                    22:bc:4d:f6:11:75:0e:fe:9f:d0:8b:91:e3:42:48:
+                    44:83:f6:0c:92:23:23:34:b8:0a:1a:ac:be:4c:8d:
+                    dd:23:cb:8f:9e:b3:c5:4d:5a:00:09:ec:03:03:e8:
+                    54:4c:4e:7b:6c:93:a6:a2:c0:7d:b5:3f:a8:55:a9:
+                    f0:a1:b7:18:44:16:00:b1:03:07:71:7f:44:a4:27:
+                    85:0c:5c:61:41:ce:5d:26:88:44:f9:8a:ee:96:d9:
+                    61:ec:cb:d4:3c:31:36:b9:96:6e:a0:4f:71:7e:08:
+                    09:18:2d:14:93:55:f2:83:5c:3a:4a:ed:16:7c:c7:
+                    20:53:a4:40:5b:75:ed:30:00:ec:ca:99:6b:2c:1c:
+                    64:30:9f:ea:3b:69:29:c4:a4:74:3e:3f:a1:b3:e3:
+                    5f:92:58:ed:bc:dd:d8:6d:e8:e3:ed:39:5b:5c:c7:
+                    58:96:59:da:35:7d:87:f9:82:64:9a:49:75:b8:5b:
+                    04:90:1a:67:df:63:25:41:32:35:50:fc:37:c2:50:
+                    1f:cf:eb:45:4a:d5:a2:c9:3e:bb:0a:e5:99:c3:99:
+                    d6:0d:2e:40:c6:fd:f7:3a:8b:67:23:e6:f4:74:c6:
+                    60:ee:ef:6a:b6:40:e9:67:39:47:9d:c1:d6:50:96:
+                    6a:57
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:TRUE
+    Signature Algorithm: sha256WithRSAEncryption
+         68:05:4d:23:f9:19:70:7d:49:6b:de:83:b3:89:6f:e6:df:50:
+         e5:b9:4c:5d:97:98:ea:de:65:7d:cf:4c:38:a7:19:68:cb:b7:
+         1a:61:e2:0c:09:30:22:7d:9a:c3:7b:fc:73:37:ad:2e:bc:14:
+         0a:13:82:91:0b:7b:ff:20:ad:56:46:fa:2c:14:7c:d3:d2:21:
+         98:92:30:f5:6e:35:1d:ce:aa:ed:05:44:7e:bb:4d:38:32:2d:
+         44:44:b4:dd:8a:7b:b2:a2:9c:82:a6:bc:93:a0:41:27:a1:2e:
+         77:20:56:d4:4b:c9:88:4a:60:0b:ff:5e:f7:3a:35:5c:43:f0:
+         26:31:49:62:6b:c9:e1:f0:c7:f7:61:16:11:1e:c8:78:e1:d3:
+         80:45:25:cf:07:69:18:89:9c:0d:2e:05:e0:db:17:51:e6:62:
+         2c:82:33:6e:36:c9:53:b1:a7:df:57:93:b4:c3:00:06:d2:3c:
+         a2:09:c9:0d:b7:9f:60:de:d8:29:11:9d:10:6a:07:92:4d:f9:
+         2f:eb:00:80:72:22:b8:0c:ec:ff:84:01:24:4d:10:f6:61:34:
+         42:40:f0:55:13:d5:15:e3:ca:be:60:4d:e0:bc:c1:bd:8e:e0:
+         2c:47:ac:48:08:c9:df:2f:20:66:dc:38:99:8a:3a:91:2d:12:
+         27:55:e9:75
+-----BEGIN CERTIFICATE-----
+MIIDWzCCAkOgAwIBAgIDEAAAMA0GCSqGSIb3DQEBCwUAMGYxCzAJBgNVBAYTAkNO
+MRIwEAYDVQQIDAlndWFuZ2RvbmcxETAPBgNVBAoMCERpZ2lDZXJ0MRAwDgYDVQQL
+DAdSb290IENBMR4wHAYDVQQDDBVEaWdpQ2VydCBSb290IENBIC0gUjEwIBcNMjIw
+NTIwMDc0NDAwWhgPMzAyMTA5MjAwNzQ0MDBaMGYxCzAJBgNVBAYTAkNOMRIwEAYD
+VQQIDAlndWFuZ2RvbmcxETAPBgNVBAoMCERpZ2lDZXJ0MRAwDgYDVQQLDAdSb290
+IENBMR4wHAYDVQQDDBVEaWdpQ2VydCBSb290IENBIC0gUjEwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQDCfR6m7H36bgcnZgf96CK8TfYRdQ7+n9CLkeNC
+SESD9gySIyM0uAoarL5Mjd0jy4+es8VNWgAJ7AMD6FRMTntsk6aiwH21P6hVqfCh
+txhEFgCxAwdxf0SkJ4UMXGFBzl0miET5iu6W2WHsy9Q8MTa5lm6gT3F+CAkYLRST
+VfKDXDpK7RZ8xyBTpEBbde0wAOzKmWssHGQwn+o7aSnEpHQ+P6Gz41+SWO283dht
+6OPtOVtcx1iWWdo1fYf5gmSaSXW4WwSQGmffYyVBMjVQ/DfCUB/P60VK1aLJPrsK
+5ZnDmdYNLkDG/fc6i2cj5vR0xmDu72q2QOlnOUedwdZQlmpXAgMBAAGjEDAOMAwG
+A1UdEwQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAGgFTSP5GXB9SWveg7OJb+bf
+UOW5TF2XmOreZX3PTDinGWjLtxph4gwJMCJ9msN7/HM3rS68FAoTgpELe/8grVZG
++iwUfNPSIZiSMPVuNR3Oqu0FRH67TTgyLUREtN2Ke7KinIKmvJOgQSehLncgVtRL
+yYhKYAv/Xvc6NVxD8CYxSWJryeHwx/dhFhEeyHjh04BFJc8HaRiJnA0uBeDbF1Hm
+YiyCM242yVOxp99Xk7TDAAbSPKIJyQ23n2De2CkRnRBqB5JN+S/rAIByIrgM7P+E
+ASRNEPZhNEJA8FUT1RXjyr5gTeC8wb2O4CxHrEgIyd8vIGbcOJmKOpEtEidV6XU=
+-----END CERTIFICATE-----
