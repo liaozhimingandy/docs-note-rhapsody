@@ -522,36 +522,34 @@ var result = lib.get_datetime_format(new Date(), "yyyy-MM-dd HH:mm:ss");
 
 ??? ":material-file: Dxml2json.js"
 
-~~~javascript
-```javascript
+    ```javascript
+    function Dxml2json(xml) {
+        /*
+        动态xml节点转json键值对
+        Rhpaosdy 7.1版本以上不支持,请参考版本2
+        形如: <message>
+        <data>
+            <d1>data</d1>
+        </data>
+        </message>
+        */
 
-function Dxml2json(xml) {
-    /*
-    动态xml节点转json键值对
-    Rhpaosdy 7.1版本以上不支持,请参考版本2
-    形如: <message>
-	<data>
-    	<d1>data</d1>
-    </data>
-    </message>
-    */
-    var tmp_data = new XML(xml);
-    var content = tmp_data.data.children();
-    var data = {};
-    for(var i = 0; i < content.length(); i++){
-        // 也可使用content[j].toXMLString()得到在字符串节点,然后使用字符串截取即可;
-        if(content[i].name() !== null){
-        var str_data = content[i].name().toString()+':'+content[i].text()
-        var arr = str_data.split(":");  
-        data[arr[0].toLowerCase()] = arr[1];  
-        }
-        };
-    return data;
-}
-// eg-1
-lib.Dxml2json(input[0].xml)
-```
-~~~
+        var tmp_data = new XML(xml);
+        var content = tmp_data.data.children();
+        var data = {};
+        for(var i = 0; i < content.length(); i++){
+            // 也可使用content[j].toXMLString()得到在字符串节点,然后使用字符串截取即可;
+            if(content[i].name() !== null){
+            var str_data = content[i].name().toString()+':'+content[i].text()
+            var arr = str_data.split(":");  
+            data[arr[0].toLowerCase()] = arr[1];  
+            }
+            };
+        return data;
+    }
+    // eg-1
+    lib.Dxml2json(input[0].xml)
+    ```
 
 ###### 动态xml转json v2版
 
@@ -559,27 +557,29 @@ Rhapsody7  JavaScript （v.2） 筛选器基于 GraalVM JavaScript 脚本引擎�
 
 ??? ":material-file: Dxml2jsonV2.js"
 
-```javascript
-function Dxml2jsonV2(xml){
-	/*
-	xml: XML元素对象
-	
-	return：
-		得到json对象
-	
-	*/
-	let nodes = xml.getElements('*');
-	let data = {};
-	
-	nodes.forEach(function(item, index){
-		data[item.domNode.toString().replace('[', '').replace(': null]', '').toLowerCase()] = item.text;
-		})
-	return data;
-}
+    ```javascript
+    
+    function Dxml2jsonV2(xml){
+        /*
+        xml: XML元素对象
 
-// eg-1
-lib.Dxml2jsonV2(input[0].xml)
-```
+        return：
+            得到json对象
+
+        */
+        let nodes = xml.getElements('*');
+        let data = {};
+
+        nodes.forEach(function(item, index){
+            data[item.domNode.toString().replace('[', '').replace(': null]', '').toLowerCase()] = item.text;
+            })
+        return data;
+    }
+
+    // eg-1
+    lib.Dxml2jsonV2(input[0].xml)
+    
+    ```
 
 !!! success "温馨提示:<br>1.Rhapsody 7.1 已测试通过"
 
