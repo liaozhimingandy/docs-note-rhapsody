@@ -459,38 +459,43 @@ var result = lib.get_datetime_format(new Date(), "yyyy-MM-dd HH:mm:ss");
 
     ```javascript
     function get_datetime_format(date, format) {
-      var get_datetime_format = function (obj_date, fmt) {
-      var dateTime = obj_date;
-      var o = {
-          "M+": dateTime.getMonth() + 1, //月份 
-          "d+": dateTime.getDate(), //日 
-          "H+": dateTime.getHours(), //小时 
-          "m+": dateTime.getMinutes(), //分 
-          "s+": dateTime.getSeconds(), //秒 
-          "q+": Math.floor((dateTime.getMonth() + 3) / 3), //季度 
-          "S": dateTime.getMilliseconds() //毫秒 
-        };
-      if (/(y+)/.test(fmt)) {
-         fmt = fmt.replace(RegExp.$1, (dateTime.getFullYear() + "").substr(4 -  RegExp.$1.length));
-      }
-      for (var k in o){
-          if (new RegExp("(" + k + ")").test(fmt)) 
-          {
-            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-          }
-      }
-      return fmt;
-    }
-    
-    return get_datetime_format(date, format);
-    }
+        var get_datetime_format = function (obj_date, fmt) {
+            var dateTime = obj_date;
+            var o = {
+                "M+": dateTime.getMonth() + 1, //月份 
+                "d+": dateTime.getDate(), //日 
+                "H+": dateTime.getHours(), //小时 
+                "m+": dateTime.getMinutes(), //分 
+                "s+": dateTime.getSeconds(), //秒 
+                "q+": Math.floor((dateTime.getMonth() + 3) / 3), //季度 
+                "S": dateTime.getMilliseconds() //毫秒 
+            };
+            if (/(y+)/.test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (dateTime.getFullYear() + "").substr(4 - RegExp.$1.length));
+            }
+            for (var k in o) {
+                if (new RegExp("(" + k + ")").test(fmt)) {
+                    if (k === "S") {
+                        // 毫秒补充3位
+                        replacement = ("000" + o[k]).slice(-3);
+                    } else {
+                        replacement = RegExp.$1.length == 1 ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length));
+                    }
+                    fmt = fmt.replace(RegExp.$1, replacement)
+                }
+            }
+            return fmt;
+        }
+
+        return get_datetime_format(date, format);
+    }   
     
     // eg-1:
     log.info(lib.get_datetime_format(new Date(), "yyyy-MM-dd HH:mm:ss.S"));
-    // eg-2:
-    log.info(lib.get_datetime_format(new Date(parseInt(next.getProperty("InputTime"))), "yyyy-MM-dd HH:mm:ss.S"));
-    // eg-3: 标准时间格式: ISO 8601
+    // eg-2: 标准时间格式: ISO 8601
     log.info(lib.get_datetime_format(new Date(), "yyyy-MM-ddTHH:mm:ss+08:00"));
+    // 切记InputTime属性只精确到秒
+    log.info(lib.get_datetime_format(new Date(parseInt(next.getProperty("InputTime"))), "yyyy-MM-dd HH:mm:ss"));
     ```
 
 ###### 字符串转时间对象
