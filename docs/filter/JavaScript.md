@@ -554,6 +554,8 @@ var result = lib.get_datetime_format(new Date(), "yyyy-MM-dd HH:mm:ss");
     }
     // eg-1
     lib.Dxml2json(input[0].xml)
+    // eg-2
+    lib.Dxml2json(input[0].xml.getElement("data"))
     ```
 
 ###### 动态xml转json v2版
