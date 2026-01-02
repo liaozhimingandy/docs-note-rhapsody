@@ -455,6 +455,21 @@ var result = lib.get_datetime_format(new Date(), "yyyy-MM-dd HH:mm:ss");
 
 ###### 时间格式化
 
+```javascript
+// 使用java内置库
+const fmt = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+
+// 时间对象转字符串
+fmt.format(new Date());
+
+// 字符串转时间对象
+const date = fmt.parse("2026-01-02 15:05:34.474");
+
+// 获取格林威治时间到目前的毫秒数
+date.getTime()
+```
+
+
 ??? ":material-file: get_datetime_format.js"
 
     ```javascript

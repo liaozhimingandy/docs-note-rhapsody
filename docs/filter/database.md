@@ -82,6 +82,8 @@ com.mysql.cj.jdbc.Driver
 jdbc:mysql://DatabaseServer/PatientRecords
 # 测试语句
 select 1 code
+# 常见问题-1 ：MySQL8报错：Public Key Retrieval is not allowed
+# 添加参数： jdbc:mysql://localhost/yourDatabase?allowPublicKeyRetrieval=true&useSSL=false
 # 通过测试Rhapsody版本: 6.7
 ```
 
