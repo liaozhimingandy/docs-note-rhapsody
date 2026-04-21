@@ -8,23 +8,17 @@
 
 | 序号 | 程序文件                                 | 描述       |
 | ---- | ---------------------------------------- | ---------- |
-| 1    | Rhapsody_Dashboard-2_1_2-windows-x64.exe | 监控程序   |
-| 2    | zh_CN.csv                                | 语言包文件 |
+| 1    | liaozhiming/rhapsody_dashboard:2.1.3.260421 | 监控程序容器镜像   |
 
 ##### 安装步骤
 
-1. 安装监控程序(目前只支持windows平台)
+1. 安装监控程序
 2. 配置监控程序
 
 ##### 程序配置
 
-1. 汉化包文件配置
-
-   ```python
-   # 将zh_CN.csv汉化文件放置到程序安装目录下以下路径
-   # dashboard\locale
-   ```
-2. 配置监控引擎
+   
+1. 配置监控引擎
 
    ```python
    # 修改配置文件 dashboard\config\engine.properties
@@ -44,6 +38,12 @@
    Engine.2.CPUWarning = 75
    Engine.2.CPUAlarm = 95
    ```
+2. 启动命令
+  ```sh
+  # 注意：需要在配置文件dashboard.properties中取消配置项Dashboard.ssl.ciphers；同时重启容器服务
+  
+  docker run -d --name rhapsody-dashboard-beta -e TZ=Asia/Shanghai -p 8250:8250 --restart unless-stopped liaozhiming/rhapsody_dashboard:2.1.3.260421
+  ```
 
 !!! success "证书指纹(Thumbprint)可通过以下路径进行获取:"
       Rhspody IDE -> Rhapsody IDE Truse Mangager -> [服务器] -> View Certificate -> 详细信息 -> 指纹
