@@ -35,7 +35,7 @@
 #### Access数据库
 
 ```python
-# 驱动名称
+# 驱动
 Access_JDBC30.jar
 # java驱动类名 driver class name
 com.hxtt.sql.access.AccessDriver
@@ -50,7 +50,7 @@ jdbc:access:////opt/dicom/Upload.mdb
 #### MongoDB数据库
 
 ```python
-# 驱动名称
+# 驱动
 mongodb_unityjdbc_full.jar
 # java驱动类名 driver class name
 mongodb.jdbc.MongoDriver
@@ -62,7 +62,7 @@ jdbc:mongo://10.88.10.72:27077/esb_msg
 #### Cache数据库
 
 ```python
-# 驱动名称
+# 驱动
 cachejdbc.jar
 # java驱动类名 driver class name
 com.intersys.jdbc.CacheDriver
@@ -74,7 +74,7 @@ jdbc:Cache://10.88.10.72:27077/test
 #### MySQL数据库
 
 ```python
-# 驱动名称
+# 驱动
 mysql-connector-java-8.0.21.jar
 # java驱动类名 driver class name
 com.mysql.cj.jdbc.Driver
@@ -85,5 +85,19 @@ select 1 code
 # 常见问题-1 ：MySQL8报错：Public Key Retrieval is not allowed
 # 添加参数： jdbc:mysql://localhost/yourDatabase?allowPublicKeyRetrieval=true&useSSL=false
 # 通过测试Rhapsody版本: 6.7
+```
+
+### Redis
+
+```python
+# 驱动
+redis-jdbc-driver-1.4.jar
+# java驱动类名 driver class name
+jdbc.RedisDriver
+# 连接方法示例;用户名:default, 密码
+jdbc:redis://172.17.0.2:6379
+# 测试语句
+get test
+# 通过测试Rhapsody版本: 7.1
 ```
 
