@@ -1,81 +1,42 @@
-# Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+# 定义镜像的标签
+# 参考文档: https://docs.astral.sh/uv/guides/integration/fastapi/#deployment
+ARG TAG=3.13-slim
 
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to
-# deal in the Software without restriction, including without limitation the
-# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-# sell copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
+FROM python:${TAG}  AS builder-image
 
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
+# pip镜像源
+# ENV PIPURL https://mirrors.aliyun.com/pypi/simple/
+ENV PIPURL="https://pypi.org/simple/"
 
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-# IN THE SOFTWARE.
+# 官方推荐方式：直接复制 uv 二进制，无需 pip 安装，速度更快
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-FROM python:3.9.2-alpine3.13
+# 统一工作目录
+WORKDIR /app
 
-# Build-time flags
-ARG WITH_PLUGINS=true
+# 先复制依赖文件，充分利用 Docker 层缓存
+COPY pyproject.toml uv.lock* ./
 
-# Environment variables
-ENV PACKAGES=/usr/local/lib/python3.9/site-packages
-ENV PYTHONDONTWRITEBYTECODE=1
+# 安装所有依赖到当前目录的 .venv 虚拟环境
+RUN uv sync --frozen --no-cache -i ${PIPURL}
 
-# Set build directory
-WORKDIR /tmp
 
-# Copy files necessary for build
-COPY requirements.txt requirements.txt
+FROM python:${TAG}
 
-# Perform build and cleanup artifacts and caches
-RUN \
-  apk upgrade --update-cache -a \
-&& \
-  apk add --no-cache \
-    git \
-    git-fast-import \
-    openssh \
-&& \
-  apk add --no-cache --virtual .build \
-    gcc \
-    musl-dev \
-&& \
-  pip install --no-cache-dir . \
-&& \
-  if [ "${WITH_PLUGINS}" = "true" ]; then \
-    pip install --no-cache-dir \
-      "mkdocs-minify-plugin>=0.3" \
-      "mkdocs-redirects>=1.0"; \
-  fi \
-&& \
-  apk del .build \
-&& \
-  for theme in mkdocs readthedocs; do \
-    rm -rf ${PACKAGES}/mkdocs/themes/$theme; \
-    ln -s \
-      ${PACKAGES}/material \
-      ${PACKAGES}/mkdocs/themes/$theme; \
-  done \
-&& \
-  rm -rf /tmp/* /root/.cache \
-&& \
-  find ${PACKAGES} \
-    -type f \
-    -path "*/__pycache__/*" \
-    -exec rm -f {} \;
+# 从构建阶段复制完整的虚拟环境
+COPY --from=builder-image /app/.venv /app/.venv
 
-# Set working directory
-WORKDIR /docs
+# 复制项目文件到容器内.
+COPY . /app
 
-# Expose MkDocs development server port
-EXPOSE 8000
+# 配置虚拟环境环境变量
+ENV VIRTUAL_ENV=/app/.venv
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-# Start development server by default
-ENTRYPOINT ["mkdocs"]
-CMD ["serve", "--dev-addr=0.0.0.0:8000"]
+WORKDIR /app
+# 设置容器启动时的命令，运行 Uvicorn 服务器并启动 FastAPI 应用
+CMD ["fastapi", "run", "main.py", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers"]
+
+# 构建命令
+# docker build -t liaozhiming/fastapi_tuiwen:latest .
+# 文件格式问题,请保持unix编码;set ff=unix

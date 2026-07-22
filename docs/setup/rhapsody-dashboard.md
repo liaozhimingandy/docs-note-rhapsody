@@ -45,5 +45,6 @@
   docker run -d --name rhapsody-dashboard-beta -e TZ=Asia/Shanghai -p 8250:8250 --restart unless-stopped liaozhiming/rhapsody_dashboard:2.1.3.260421
   ```
 
-!!! success "证书指纹(Thumbprint)可通过以下路径进行获取:"
-      Rhspody IDE -> Rhapsody IDE Truse Mangager -> [服务器] -> View Certificate -> 详细信息 -> 指纹
+!!! success "证书指纹(Thumbprint)可通过以下路径文件中进行获取:"
+      **服务端-windows端(需要重启引擎)**: 示例`C:\Program Files\Rhapsody\Rhapsody Engine 7\rhapsody\ide. thumbprint. txt` <br>
+      **服务端-centos端(需要重启引擎)**: 示例`/home/rhapsody/rhapsody/rhapsody-engine-7/rhapsody/ide. thumbprint. txt` <br>
