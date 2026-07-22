@@ -31,7 +31,7 @@
    Engine.2.Port = 8444
    Engine.2.Username = rest_api_rhapsody_dashboard
    Engine.2.Password = REN600c3586c33793b3dbeb40aa0e4b4c02135e99e5321019a52d3bc7f228d69c86e2fc5c16dabe961b62b6c
-   Engine.2.Thumbprint =51 AF 12 6B 02 A3 FA 63 39 58 C6 C3 00 FC 00 B3 8D 64 79 A3 # 证书指纹,通过Rhspody IDE证书信任处查看;证书->详细信息->指纹; 注意=后面不能有空格
+   Engine.2.Thumbprint =51 AF 12 6B 02 A3 FA 63 39 58 C6 C3 00 FC 00 B3 8D 64 79 A3 # 证书指纹
    Engine.2.Disabled = false
    Engine.2.Polling = 120
    Engine.2.Groups = 2 # 分组的名称
@@ -46,5 +46,5 @@
   ```
 
 !!! success "证书指纹(Thumbprint)可通过以下路径文件中进行获取:"
-      **服务端-windows端(需要重启引擎)**: 示例`C:\Program Files\Rhapsody\Rhapsody Engine 7\rhapsody\ide. thumbprint. txt` <br>
-      **服务端-centos端(需要重启引擎)**: 示例`/home/rhapsody/rhapsody/rhapsody-engine-7/rhapsody/ide. thumbprint. txt` <br>
+      **服务端-windows端**: 示例`C:\Program Files\Rhapsody\Rhapsody Engine 7\rhapsody\ide.thumbprint.txt` <br>
+      **服务端-centos端**: 示例`/home/rhapsody/rhapsody/rhapsody-engine-7/rhapsody/ide.thumbprint.txt` <br>
