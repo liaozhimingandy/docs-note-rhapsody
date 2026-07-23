@@ -99,5 +99,17 @@ jdbc:redis://172.17.0.2:6379
 # 测试语句
 get test
 # 通过测试Rhapsody版本: 7.1
+
+# 设置key-value
+set CDR:ESB:TOKEN:test test ex 7400
+
+# 设置value为字典
+set CDR:ESB:TOKEN:test '{"app_id": "test"}' ex 7400
+
+# 集合中添加数据
+SADD CDR:ESB:TOKEN:test test2
+
+# 删除key
+del CDR:ESB:TOKEN:test
 ```
 
