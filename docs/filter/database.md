@@ -32,6 +32,15 @@
      **服务端-centos端(需要重启引擎)**: 示例`/home/rhapsody/rhapsody/rhapsody-engine-6/rhapsody/data/lib` <br>
      **IDE端**: 示例 C:\Program Files (x86)\Rhapsody\Rhapsody IDE 6\Rhapsody IDE\DatabaseStructureReader
 
+#### SQL Server
+
+```python
+# Rhapsody 7.4版本以上使用推荐的驱动连接提示
+# PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+# 请在配置界面添加以下属性值
+# trustServerCertificate=true
+```
+
 #### Access数据库
 
 ```python
