@@ -13,9 +13,9 @@
 <a id=__codelineno-2-5 name=__codelineno-2-5 href=#__codelineno-2-5></a>X-CSRF-Token: bH+ZcY9oB1+ZmfZDggWJ03Gex+tENImbqqTEbjQ92YH3g7teW+umHi8bLX4VQQMy32L1e5S0Y32A0DWz/y1fyQ==
 <a id=__codelineno-2-6 name=__codelineno-2-6 href=#__codelineno-2-6></a>
 <a id=__codelineno-2-7 name=__codelineno-2-7 href=#__codelineno-2-7></a>{
-<a id=__codelineno-2-8 name=__codelineno-2-8 href=#__codelineno-2-8></a>  &quot;startTime&quot;:&quot;2015-08-17T16:01:00&quot;,
-<a id=__codelineno-2-9 name=__codelineno-2-9 href=#__codelineno-2-9></a>  &quot;endTime&quot;:&quot;2015-08-17T17:01:00&quot;,
-<a id=__codelineno-2-10 name=__codelineno-2-10 href=#__codelineno-2-10></a>  &quot;samplingResolution&quot;:&quot;PT10M&quot;
+<a id=__codelineno-2-8 name=__codelineno-2-8 href=#__codelineno-2-8></a>  "startTime":"2015-08-17T16:01:00",
+<a id=__codelineno-2-9 name=__codelineno-2-9 href=#__codelineno-2-9></a>  "endTime":"2015-08-17T17:01:00",
+<a id=__codelineno-2-10 name=__codelineno-2-10 href=#__codelineno-2-10></a>  "samplingResolution":"PT10M"
 <a id=__codelineno-2-11 name=__codelineno-2-11 href=#__codelineno-2-11></a>}
 </code></pre></div> <h4 id=_2>示例<a class=headerlink href=#_2 title="Permanent link">&para;</a></h4> <h5 id=_3>同步配置<a class=headerlink href=#_3 title="Permanent link">&para;</a></h5> <h6 id=_4>下载需要同步的配置<a class=headerlink href=#_4 title="Permanent link">&para;</a></h6> <div class=highlight><pre><span></span><code><a id=__codelineno-3-1 name=__codelineno-3-1 href=#__codelineno-3-1></a><span class=err>GET https://172.16.33.174:8444/admin/config</span>
 <a id=__codelineno-3-2 name=__codelineno-3-2 href=#__codelineno-3-2></a><span class=err>Accept: application/json</span>
@@ -24,7 +24,7 @@
 </code></pre></div> <p><img align=left alt=下载需要同步的配置 src=/docs-note-rhapsody/assets/images/微信截图_20220513174942.png></p> <h6 id=_5>更新配置<a class=headerlink href=#_5 title="Permanent link">&para;</a></h6> <p>获取**X-CSRF-Token**,通过下面的请求得到响应中的**X-CSRF-Token**</p> <div class=highlight><pre><span></span><code><a id=__codelineno-4-1 name=__codelineno-4-1 href=#__codelineno-4-1></a><span class=err>GET https://172.16.33.188:8444/api/info</span>
 <a id=__codelineno-4-2 name=__codelineno-4-2 href=#__codelineno-4-2></a><span class=err>Accept: application/json</span>
 <a id=__codelineno-4-3 name=__codelineno-4-3 href=#__codelineno-4-3></a><span class=err>Authorization: Basic YWRtaW5pc3RyYXRvcjphZG1pbg==</span>
-</code></pre></div> <p><img alt=获取X-CSRF-Token src=/docs-note-rhapsody/assets/images/微信截图_20220513175622.png></p> <p>提交配置文件</p> <div class=highlight><pre><span></span><code><a id=__codelineno-5-1 name=__codelineno-5-1 href=#__codelineno-5-1></a><span class=err>POST https://172.16.33.188:8444/admin/config?commitComment=&#39;更新内容&#39;</span>
+</code></pre></div> <p><img alt=获取X-CSRF-Token src=/docs-note-rhapsody/assets/images/微信截图_20220513175622.png></p> <p>提交配置文件</p> <div class=highlight><pre><span></span><code><a id=__codelineno-5-1 name=__codelineno-5-1 href=#__codelineno-5-1></a><span class=err>POST https://172.16.33.188:8444/admin/config?commitComment='更新内容'</span>
 <a id=__codelineno-5-2 name=__codelineno-5-2 href=#__codelineno-5-2></a><span class=err>Content-Type: application/zip</span>
 <a id=__codelineno-5-3 name=__codelineno-5-3 href=#__codelineno-5-3></a><span class=err>Content-Type: application/vnd.orchestral.rhapsody.6_2_2+zip</span>
 <a id=__codelineno-5-4 name=__codelineno-5-4 href=#__codelineno-5-4></a><span class=err>X-CSRF-Token: NlSbnWZAzHDSUrZEmlY5xDoI+fRP49h+RCxx6mdSZFRGEuHRthY/Pl7mCUw2kyF0hy3VCXWEoOIntrBR1VJBNg==</span>
