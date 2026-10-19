@@ -2,7 +2,7 @@
 
 ##### 下载证书文件
 
-[请点击此链接下载](/docs-note-rhapsody/assets/ca/alsoapp_ca_root_cert.crt)
+[请点击此链接下载](https://www.alsoapp.com/static/crl/root.crt)
 
 ##### 安装证书
 
